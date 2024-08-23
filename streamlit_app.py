@@ -27,8 +27,6 @@ st.markdown("""
 st.title("🎈 My Mariam VS Arwa App")
 st.header("Welcome, Customer!")
 
-# Display an image (replace 'your_image.png' with the path to your image)
-st.image("your_image.png", caption="Predictive Analysis", use_column_width=True)
 
 # Create user-friendly input fields with sliders, dropdowns, and other controls
 st.subheader("Please enter the features below:")
