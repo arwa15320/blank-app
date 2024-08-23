@@ -1,14 +1,30 @@
-
 import streamlit as st
-import  pickle
-st.title("🎈 My mariam VS  arwa app2")
-st.header("hey , customer")
-f1=st.number_input("feature 1",min_value=1,max_value=10)
-f2=st.number_input("feature 2",min_value=1,max_value=10)
-f3=st.number_input("feature 3",min_value=1,max_value=100)
+import pickle
 
-with open('model.pkl','rb') as file:
-    model=pickle.load(file)
-result=model.predict([[f1,f2,f3]])
-st.write("the predict value is : ")
-st.write(result)
+# Set up the page title and header
+st.set_page_config(page_title="🎈 My Mariam VS Arwa App", page_icon="🎈", layout="centered")
+st.title("🎈 My Mariam VS Arwa App")
+st.header("Welcome, Customer!")
+
+# Add an image to the app (make sure to replace 'your_image.png' with the path to your image)
+st.image("your_image.png", caption="Predictive Analysis", use_column_width=True)
+
+# Input features
+st.subheader("Please enter the features below:")
+f1 = st.number_input("Feature 1", min_value=1, max_value=10)
+f2 = st.number_input("Feature 2", min_value=1, max_value=10)
+f3 = st.number_input("Feature 3", min_value=1, max_value=100)
+
+# Button to trigger the prediction
+if st.button("Predict"):
+    with open('model.pkl', 'rb') as file:
+        model = pickle.load(file)
+    
+    # Perform prediction
+    result = model.predict([[f1, f2, f3]])
+    
+    # Display the result
+    st.write("The predicted value is:")
+    st.write(result)
+else:
+    st.write("Please input all features and press 'Predict' to see the result.")
